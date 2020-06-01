@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <mat-toolbar class = "toolbar">
+
+        <span class = "title">Treello</span>
+        <span>Add task</span>
+      </mat-toolbar>
+    <body>
+        <div cdkDropListGroup>
+            <div>
+                <div
+                class="example-container"
+                cdkDropList [cdkDropListData]="list"
+                *ngFor="let list of lists"
+                (cdkDropListDropped)="drop($event)">
+                    <h2>{{list.name}}</h2>
+                    <div
+                    class="example-box"
+                    cdkDrag [cdkDragData]="item"
+                    *ngFor="let item of list.tasks">
+                    {{item}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
