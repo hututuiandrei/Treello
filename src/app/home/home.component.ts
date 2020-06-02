@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import {TaskLists} from '../models/lists-tasks'
+import {TaskLists} from '../core/models/lists-tasks'
 
 @Component({
   selector: 'app-home',
@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
   }
 
   private restoreFromCache() {
+    localStorage.clear();
     var cachedData = localStorage.getItem(HomeComponent.KEY);
     return (cachedData == null) ? JSON.parse(this.listsJson) : JSON.parse(cachedData);
   }

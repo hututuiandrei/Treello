@@ -1,0 +1,33 @@
+<div class="example-container">
+    <h2>
+        {{title}}
+    </h2>
+    <ng-content></ng-content>
+
+    <div style="margin-top: 10px;">
+        <div *ngIf="addCardSelected">
+            <form class="example-form">
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Title</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput></textarea>
+                    </mat-form-field>
+                </div>
+                <button type="submit" class="add-card-btn" mat-button>Add Card</button>
+                <button (click)="toogleNewCard()" style="font-size: xx-large; color: white;" mat-button>×</button>
+                
+            </form>
+        </div>
+        <div *ngIf="!addCardSelected">
+            <button (click)="toogleNewCard()" class="add-another-card-btn" mat-button>＋ Add another card</button>
+    </div>
+    </div>
+
+</div>

@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
     <mat-toolbar class = "toolbar">
-
         <span class = "title">Treello</span>
         <span>Add task</span>
       </mat-toolbar>
     <body>
         <div cdkDropListGroup>
             <div>
-                <div
-                class="example-container"
-                cdkDropList [cdkDropListData]="list"
-                *ngFor="let list of lists"
-                (cdkDropListDropped)="drop($event)">
-                    <h2>{{list.name}}</h2>
+                <app-container *ngFor="let list of lists" [title]="list.name">
                     <div
-                    class="example-box"
-                    cdkDrag [cdkDragData]="item"
-                    *ngFor="let item of list.tasks">
-                    {{item}}
+                    class="list"
+                    cdkDropList [cdkDropListData]="list"
+                    (cdkDropListDropped)="drop($event)">
+
+                        <div style="color: transparent;">-</div>
+
+                        <div *ngFor="let item of list.tasks" cdkDrag [cdkDragData]="item" class="task">
+                            <app-task [item]="item"></app-task>
+                        </div>
                     </div>
-                </div>
+                </app-container>
             </div>
         </div>
     </body>

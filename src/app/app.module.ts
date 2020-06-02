@@ -4,22 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import {DragDropModule} from '@angular/cdk/drag-drop';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule,
-    DragDropModule,
-    MatToolbarModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
