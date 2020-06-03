@@ -1,4 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-task',
@@ -8,4 +15,24 @@ import { Component, Input } from '@angular/core';
 export class TaskComponent {
 
   @Input() item;
+  @Output() modifyCard: EventEmitter<any> = new EventEmitter();
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(): void {
+
+    const dialogRef = this.dialog.open(TaskDialogComponent, {
+
+      data: {title: this.item.title, description: this.item.description}
+    });
+
+  dialogRef.afterClosed().subscribe(result => {
+
+    if(result) {
+      this.item.title = result.title;
+      this.item.description = result.description;
+      this.modifyCard.emit();
+    }
+    });
+  }
 }

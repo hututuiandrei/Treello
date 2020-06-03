@@ -2,12 +2,11 @@
 <html>
     <mat-toolbar class = "toolbar">
         <span class = "title">Treello</span>
-        <span>Add task</span>
       </mat-toolbar>
     <body>
         <div cdkDropListGroup>
             <div>
-                <app-container *ngFor="let list of lists" [title]="list.name">
+                <app-container *ngFor="let list of lists" [container]="list" (addCard)="onAddCard($event)">
                     <div
                     class="list"
                     cdkDropList [cdkDropListData]="list"
@@ -16,7 +15,7 @@
                         <div style="color: transparent;">-</div>
 
                         <div *ngFor="let item of list.tasks" cdkDrag [cdkDragData]="item" class="task">
-                            <app-task [item]="item"></app-task>
+                            <app-task [item]="item" (modifyCard)="onModifyCard()"></app-task>
                         </div>
                     </div>
                 </app-container>

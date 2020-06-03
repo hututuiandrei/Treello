@@ -1,33 +1,34 @@
 <div class="example-container">
     <h2>
-        {{title}}
+        {{container.name}}
     </h2>
     <ng-content></ng-content>
 
     <div style="margin-top: 10px;">
-        <div *ngIf="addCardSelected">
-            <form class="example-form">
+        <div *ngIf="addCardSelected" style="background-color: #d8ebb5; padding: 10px; border-radius: 20px;">
+            <form #newCardForm="ngForm" (ngSubmit)="addNewCard(newCardForm.value)">
                 <div>
                     <mat-form-field class="example-full-width">
                         <mat-label>Title</mat-label>
-                        <input matInput>
+                        <input matInput ngModel #title="ngModel" name="title" required autocomplete="off">
                     </mat-form-field>
                 </div>
 
                 <div>
                     <mat-form-field class="example-full-width">
                         <mat-label>Description</mat-label>
-                        <textarea matInput></textarea>
+                        <textarea matInput ngModel #description="ngModel" name="description" autocomplete="off"></textarea>
                     </mat-form-field>
                 </div>
-                <button type="submit" class="add-card-btn" mat-button>Add Card</button>
-                <button (click)="toogleNewCard()" style="font-size: xx-large; color: white;" mat-button>×</button>
-                
+                <div>
+                    <button type="submit" class="add-card-btn" mat-button>Add Card</button>
+                    <button type="button" (click)="toogleNewCard()" style="font-size: xx-large; color: rgba(0, 0, 0, 0.5);" mat-button>×</button> 
+                </div>
             </form>
         </div>
         <div *ngIf="!addCardSelected">
             <button (click)="toogleNewCard()" class="add-another-card-btn" mat-button>＋ Add another card</button>
-    </div>
+        </div>
     </div>
 
 </div>

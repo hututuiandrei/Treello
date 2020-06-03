@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import {TaskLists} from '../core/models/lists-tasks'
+import {Category} from '../core/models/category'
+import {CachingService} from '../core/services/caching.service'
 
 @Component({
   selector: 'app-home',
@@ -9,18 +10,16 @@ import {TaskLists} from '../core/models/lists-tasks'
 })
 export class HomeComponent implements OnInit {
 
-  private static KEY = "KEY";
-  private listsJson = '[{"name": "Backlog","tasks": [1,2,3]},{"name": "In progress","tasks": [3,4,5]},{"name": "Ready for Test","tasks": [6,7,8]},{"name": "Done","tasks": [9,10,11]}]';
-  lists: TaskLists[];
+  lists: Category[];
 
-  constructor() {
-  }
+  constructor(private cachingService: CachingService) {}
 
   ngOnInit(): void {
-    this.lists = this.restoreFromCache();
+    this.cachingService.restoreFromCache();
+    this.cachingService.getLists().subscribe(lists => this.lists = lists);
   }
 
-  drop(event: CdkDragDrop<TaskLists>) {
+  drop(event: CdkDragDrop<Category>) {
     if (event.previousContainer === event.container) {
 
       moveItemInArray(event.container.data.tasks, event.previousIndex, event.currentIndex);
@@ -31,17 +30,15 @@ export class HomeComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
-    this.cacheChanges();
+    this.cachingService.cacheChanges();
+
   }
 
-  private cacheChanges() {
-    var savedJson = JSON.stringify(this.lists);
-    localStorage.setItem(HomeComponent.KEY, savedJson);
+  onAddCard(card) {
+    this.cachingService.addCard(card);
   }
 
-  private restoreFromCache() {
-    localStorage.clear();
-    var cachedData = localStorage.getItem(HomeComponent.KEY);
-    return (cachedData == null) ? JSON.parse(this.listsJson) : JSON.parse(cachedData);
+  onModifyCard() {
+    this.cachingService.cacheChanges();
   }
 }

@@ -8,14 +8,19 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field'
 
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 
 @NgModule({
   declarations: [
 
     TaskComponent,
-    ContainerComponent
+    ContainerComponent,
+    TaskDialogComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +29,10 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
     NoopAnimationsModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule
   ],
   exports: [
     TaskComponent,
