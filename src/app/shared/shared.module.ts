@@ -14,13 +14,15 @@ import {MatFormFieldModule} from '@angular/material/form-field'
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { NewContainerComponent } from './new-container/new-container.component';
 
 @NgModule({
   declarations: [
 
     TaskComponent,
     ContainerComponent,
-    TaskDialogComponent
+    TaskDialogComponent,
+    NewContainerComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +39,7 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
   exports: [
     TaskComponent,
     ContainerComponent,
+    NewContainerComponent,
     DragDropModule,
     MatToolbarModule,
     NoopAnimationsModule

@@ -1,0 +1,19 @@
+<div *ngIf="!addContainerSelected" (click)="toogleNewContainer()" class="new-container">
+    ＋ Add another list
+</div>
+<div *ngIf="addContainerSelected" class="add-container">
+    <div style="margin-top: 10px;">
+        <form #newContainerForm="ngForm" (ngSubmit)="addNewContainer(newContainerForm.value)">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Title</mat-label>
+                    <input matInput ngModel #title="ngModel" name="title" required autocomplete="off">
+                </mat-form-field>
+            </div>
+            <div>
+                <button type="submit" class="add-list-btn" mat-button>Add List</button>
+                <button type="button" (click)="toogleNewContainer()" class="close-icon" mat-button>×</button> 
+            </div>
+        </form>
+    </div>
+</div>

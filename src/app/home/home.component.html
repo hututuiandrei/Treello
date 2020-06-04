@@ -6,19 +6,17 @@
     <body>
         <div cdkDropListGroup>
             <div>
-                <app-container *ngFor="let list of lists" [container]="list" (addCard)="onAddCard($event)">
+                <app-container *ngFor="let list of lists" [container]="list" (applyChanges)="onChanges()">
                     <div
                     class="list"
                     cdkDropList [cdkDropListData]="list"
                     (cdkDropListDropped)="drop($event)">
-
-                        <div style="color: transparent;">-</div>
-
                         <div *ngFor="let item of list.tasks" cdkDrag [cdkDragData]="item" class="task">
-                            <app-task [item]="item" (modifyCard)="onModifyCard()"></app-task>
+                            <app-task [item]="item" (applyChanges)="onChanges()"></app-task>
                         </div>
                     </div>
                 </app-container>
+                <app-new-container [containers]="lists" (applyChanges)="onChanges()"></app-new-container>
             </div>
         </div>
     </body>

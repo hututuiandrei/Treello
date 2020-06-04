@@ -1,16 +1,26 @@
 body {
-    padding: 10px;
-    white-space: nowrap;
+  padding: 10px;
+  white-space: nowrap;
 }
 
 .toolbar {
-    background-color:  #2b580c;
-    color: #d8ebb5;
+  background-color:  #2b580c;
+  color: #d8ebb5;
 }
 
 .title {
-    margin: auto;
-    text-align: center;
+  margin: auto;
+  text-align: center;
+}
+
+.list {
+
+  min-height: 50px;
+}
+
+.task {
+
+  margin-top: 10px;
 }
 
 .cdk-drag-preview {

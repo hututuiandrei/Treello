@@ -15,7 +15,7 @@ export interface DialogData {
 export class TaskComponent {
 
   @Input() item;
-  @Output() modifyCard: EventEmitter<any> = new EventEmitter();
+  @Output() applyChanges: EventEmitter<any> = new EventEmitter();
 
   constructor(public dialog: MatDialog) {}
 
@@ -31,7 +31,7 @@ export class TaskComponent {
     if(result) {
       this.item.title = result.title;
       this.item.description = result.description;
-      this.modifyCard.emit();
+      this.applyChanges.emit();
     }
     });
   }

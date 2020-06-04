@@ -1,5 +1,5 @@
 .example-container {
-    width: 400px;
+    width: 300px;
     max-width: 100%;
     margin: 0 25px 25px 0;
     display: inline-block;
@@ -45,6 +45,6 @@
 
 .close-icon {
 
-  color: white;
-  align-content: flex-end;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: xx-large;
 }

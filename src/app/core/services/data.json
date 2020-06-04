@@ -1,21 +1,17 @@
 [
     {
-        "id": 0,
         "name": "Backlog",
         "tasks": []
     },
     {
-        "id": 1,
         "name": "In progress",
         "tasks": []
     },
     {
-        "id": 2,
         "name": "Ready for Test",
         "tasks": []
     },
     {
-        "id": 3,
         "name": "Done",
         "tasks": []
     }

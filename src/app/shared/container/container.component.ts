@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Task } from '../../core/models/task'
 
 @Component({
   selector: 'app-container',
@@ -11,7 +12,7 @@ export class ContainerComponent {
   addCardSelected: boolean = false;
 
   @Input() container;
-  @Output() addCard: EventEmitter<any> = new EventEmitter();
+  @Output() applyChanges: EventEmitter<any> = new EventEmitter();
 
   toogleNewCard() {
     this.addCardSelected = !this.addCardSelected;
@@ -19,9 +20,13 @@ export class ContainerComponent {
 
   addNewCard(card) {
 
-    var newEvent = {"containerId" : this.container.id, "cardTitle" : card.title, "cardDesc" : card.description};
+    var newTask = new Task();
+    newTask.title = card.title;
+    newTask.description = card.description;
 
-    this.addCard.emit(newEvent);
+    this.container.tasks.push(newTask);
+    this.applyChanges.emit();
+
     this.toogleNewCard();
   }
 }

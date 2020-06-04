@@ -1,0 +1,73 @@
+.new-container {
+
+    width: 300px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: large;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.add-container {
+    width: 300px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: 500;
+    background-color: #d9bf77;
+}
+
+
+.new-container:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.add-another-card-btn {
+
+    color: rgb(255,255,255,0.75);
+    font-size: large;
+}
+
+.add-another-card-btn:hover {
+
+    background-color: rgb(255,255,255,0.25);
+}
+
+.add-list-btn {
+
+    color: white;
+    font-size: large;
+    background-color: rgb(35, 182, 35);
+}
+  
+.add-list-btn:hover {
+  
+    background-color: rgb(40, 151, 40);
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    font-size: large;
+}
+  
+.example-full-width {
+    width: 100%;
+}
+  
+.close-icon {
+  
+    color: rgba(0, 0, 0, 0.5);
+    font-size: xx-large;
+}

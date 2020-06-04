@@ -31,14 +31,9 @@ export class HomeComponent implements OnInit {
                         event.currentIndex);
     }
     this.cachingService.cacheChanges();
-
   }
 
-  onAddCard(card) {
-    this.cachingService.addCard(card);
-  }
-
-  onModifyCard() {
+  onChanges() {
     this.cachingService.cacheChanges();
   }
 }
